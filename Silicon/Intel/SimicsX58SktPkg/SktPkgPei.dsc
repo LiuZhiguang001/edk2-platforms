@@ -10,5 +10,8 @@
   #
   # SEC Phase modules
   #
-  UefiCpuPkg/ResetVector/Vtf0/Vtf0.inf
+  UefiCpuPkg/ResetVector/Vtf0/Vtf0.inf {
+    <BuildOptions>
+      *_*_X64_NASMB_FLAGS = -DARCH_X64
+  }
   UefiCpuPkg/CpuMpPei/CpuMpPei.inf

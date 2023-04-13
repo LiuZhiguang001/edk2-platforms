@@ -26,7 +26,11 @@
   PLATFORM_GUID                  = EE8EBB5A-CC95-412f-9987-2AF70F88B69A
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
+!if $(PEI_ARCH) == X64
+  OUTPUT_DIRECTORY               = Build/$(PROJECT)_X64
+!else
   OUTPUT_DIRECTORY               = Build/$(PROJECT)
+!endif
   SUPPORTED_ARCHITECTURES        = IA32|X64
   BUILD_TARGETS                  = DEBUG|RELEASE|NOOPT
   SKUID_IDENTIFIER               = DEFAULT
@@ -72,15 +76,11 @@
 #######################################
 # Component Includes
 #######################################
-# @todo: Change below line to [Components.$(PEI_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.IA32]
+[Components.$(PEI_ARCH)]
 !include $(PLATFORM_PACKAGE)/Include/Dsc/CorePeiInclude.dsc
 !include $(SKT_PKG)/SktPkgPei.dsc
 
-# @todo: Change below line to [Components.$(DXE_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.X64]
+[Components.$(DXE_ARCH)]
 !include $(PLATFORM_PACKAGE)/Include/Dsc/CoreDxeInclude.dsc
 
 #######################################
@@ -174,9 +174,7 @@
 #######################################
 # PEI Components
 #######################################
-# @todo: Change below line to [Components.$(PEI_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.IA32]
+[Components.$(PEI_ARCH)]
   #######################################
   # Edk2 Packages
   #######################################
@@ -228,9 +226,7 @@
 #######################################
 # DXE Components
 #######################################
-# @todo: Change below line to [Components.$(DXE_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.X64]
+[Components.$(DXE_ARCH)]
   #######################################
   # Edk2 Packages
   #######################################
