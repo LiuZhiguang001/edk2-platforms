@@ -243,7 +243,8 @@ def pre_build(build_config, build_type="DEBUG", silent=False, toolchain=None):
 
     config["PROJECT"] = os.path.join(config["PLATFORM_BOARD_PACKAGE"],
                                      config["BOARD"])
-
+    if "BUILD_PATH_SUFFIX" in config:
+        config["PROJECT"] += config["BUILD_PATH_SUFFIX"]
     # Setup Build
     # @todo: Need better TOOL_CHAIN_TAG detection
     if toolchain is not None:

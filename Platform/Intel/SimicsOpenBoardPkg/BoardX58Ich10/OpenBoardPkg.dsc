@@ -26,7 +26,7 @@
   PLATFORM_GUID                  = EE8EBB5A-CC95-412f-9987-2AF70F88B69A
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/$(PROJECT)
+  OUTPUT_DIRECTORY               = Build/$(PROJECT)_$(PEI_ARCH)
   SUPPORTED_ARCHITECTURES        = IA32|X64
   BUILD_TARGETS                  = DEBUG|RELEASE|NOOPT
   SKUID_IDENTIFIER               = DEFAULT
@@ -72,9 +72,7 @@
 #######################################
 # Component Includes
 #######################################
-# @todo: Change below line to [Components.$(PEI_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.IA32]
+[Components.$(PEI_ARCH)]
 !include $(PLATFORM_PACKAGE)/Include/Dsc/CorePeiInclude.dsc
 !include $(SKT_PKG)/SktPkgPei.dsc
 
@@ -175,9 +173,7 @@
 #######################################
 # PEI Components
 #######################################
-# @todo: Change below line to [Components.$(PEI_ARCH)] after https://bugzilla.tianocore.org/show_bug.cgi?id=2308
-#        is completed
-[Components.IA32]
+[Components.$(PEI_ARCH)]
   #######################################
   # Edk2 Packages
   #######################################
