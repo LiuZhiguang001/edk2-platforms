@@ -165,7 +165,6 @@ INF  MinPlatformPkg/PlatformInit/SiliconPolicyPei/SiliconPolicyPeiPostMem.inf
 !include MinPlatformPkg/Include/Fdf/CoreSecurityPostMemoryInclude.fdf
 
 INF  UefiCpuPkg/Universal/Acpi/S3Resume2Pei/S3Resume2Pei.inf
-INF  $(SKT_PKG)/Smm/Access/SmmAccessPei.inf
 # S3 SMM PEI driver
 #INF  UefiCpuPkg/PiSmmCommunication/PiSmmCommunicationPei.inf
 

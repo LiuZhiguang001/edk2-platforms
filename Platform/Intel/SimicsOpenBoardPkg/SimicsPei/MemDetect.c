@@ -25,6 +25,7 @@
 #include <Library/CmosAccessLib.h>
 #include <SimicsPlatforms.h>
 #include <Guid/SmramMemoryReserve.h>
+#include <Library/SmmAccessLib.h>
 
 #include <CmosMap.h>
 
@@ -471,6 +472,8 @@ InitializeRamRegions (
   VOID
   )
 {
+  EFI_STATUS     Status;
+
   QemuInitializeRam ();
 
   if (mS3Supported && mBootMode != BOOT_ON_S3_RESUME) {
@@ -543,4 +546,10 @@ InitializeRamRegions (
         );
     }
   }
+
+  //
+  // Install EFI_PEI_MM_ACCESS_PPI for S3 resume case
+  //
+  Status = PeiInstallSmmAccessPpi ();
+  ASSERT_EFI_ERROR (Status);
 }
