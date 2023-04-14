@@ -8,7 +8,7 @@
 ##
 
 !if gMinPlatformPkgTokenSpaceGuid.PcdBootToShellOnly == FALSE
-  INF  $(SKT_PKG)/Smm/Access/SmmAccess2Dxe.inf
+  INF  IntelSiliconPkg/Feature/SmmAccess/SmmAccessDxe/SmmAccess.inf
   INF  UefiCpuPkg/PiSmmCpuDxeSmm/PiSmmCpuDxeSmm.inf
 !endif
 INF  MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
