@@ -38,9 +38,6 @@
   SimicsX58SktPkg/SktPkg.dec
   SimicsIch10Pkg/Ich10Pkg.dec
 
-[Guids]
-  gEfiAcpiVariableGuid
-
 [LibraryClasses]
   BaseLib
   BaseMemoryLib
